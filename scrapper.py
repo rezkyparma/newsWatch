@@ -4,6 +4,8 @@ import datetime
 import pytz
 from urllib.parse import urlparse
 from typing import List
+from bs4 import SoupStrainer
+import lxml
 
 
 def get_hostname(url):
@@ -31,11 +33,11 @@ def convert_timestamp(timestamp):
     # Define the timezone as Asia/Jakarta (GMT+7)
     timezone = pytz.timezone('Asia/Jakarta')
     # Convert the datetime to the desired timezone
-    dt = datetime.datetime.utcfromtimestamp(timestamp).replace(tzinfo=pytz.utc).astimezone(timezone)
-    # Format the datetime as a string in the expected format
-    formatted_time = dt.strftime("%d %B %Y %H:%M")
+    datetime_object = datetime.datetime.utcfromtimestamp(timestamp).replace(tzinfo=pytz.utc).astimezone(timezone)
+    # Format the datetime as a string in the expected format if needed
+    # formatted_time = datetime_object.strftime("%d %B %Y %H:%M")
     # Returning the def
-    return formatted_time
+    return datetime_object
 
 
 class DetikScrapper:
@@ -51,8 +53,10 @@ class DetikScrapper:
             while articles_crawled < self.article_target:
                 # Fetch the URL data using requests.get(url)
                 request_result = requests.get(url).text
+                # Strainer
+                only_article_tag = SoupStrainer('article')
                 # Creating soup from the fetched request
-                soup = BeautifulSoup(request_result, 'html.parser')
+                soup = BeautifulSoup(request_result, 'html.parser', parse_only=only_article_tag)
                 # Selecting article tag in soup object
                 articles = soup.find_all('article')
 
@@ -131,10 +135,9 @@ class KompasScrapper:
                     subdomain = get_hostname(link)[1]
                     timestamp = article.find(class_="article__date").getText()
                     # Convert the input string to a datetime object
-                    datetime_object = datetime.datetime.strptime(timestamp, "%d/%m/%Y, %H:%M WIB")
-
-                    # Convert the datetime object to the desired format
-                    formatted_time = datetime_object.strftime("%d %B %Y %H:%M")
+                    time_published = datetime.datetime.strptime(timestamp, "%d/%m/%Y, %H:%M WIB")
+                    # Convert the datetime object to the desired format if needed
+                    # formatted_time = datetime_object.strftime("%d %B %Y %H:%M")
 
                     # Structuring selection in dictionary
                     data = {
@@ -142,7 +145,7 @@ class KompasScrapper:
                         'link': link,
                         'domain': domain,
                         'subdomain': subdomain,
-                        'time_published': formatted_time  # DD-MM-YY HH:MM Format
+                        'time_published': time_published  # DD-MM-YY HH:MM Format
                     }
 
                     # Testing response in console
@@ -151,7 +154,7 @@ class KompasScrapper:
                         print(f'Link: {link}')
                         print(f'Domain: {domain}')
                         print(f'Subdomain: {subdomain}')
-                        print(f'Time Publish: {formatted_time}')
+                        print(f'Time Publish: {time_published}')
                         print('----------')
 
                     crawled_response.append(data)  # Appending to crawled_response list
