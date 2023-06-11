@@ -1,0 +1,145 @@
+------------------
+Prompt:
+        Identify the following items from the url,Format your response as a JSON object with         key value pair: 
+        - subject: Who is the subject present in the article, if more than one subject apply in list
+        - summary: What is the article pointing out
+        - category: What is the general category of this article
+        - sub category: What is the subcategory of this article
+        - keyword: What is the most used keyword in this article
+        - related keyword: suggest related keyword for this article, that can be used to optimise SEO for competing article, if multiple result apply in list
+        - suggestion article: suggest article title to compete with this article based on related keyword, applying long tail keyword
+        
+        The url is delimited with triple backticks.         
+        If the information isn't present, use "unknown"         as the value.
+        Make your response as short as possible in indonesian language.
+        
+        Review text: ```https://health.detik.com/true-story/d-6765893/livestreamer-cina-tewas-saat-ngonten-tegak-empat-botol-alkohol-demi-bayar-utang```
+        
+-- Temperature:0.0
+-- Result:
+{
+  "subject": "Livestreamer Cina",
+  "summary": "Seorang Livestreamer Cina tewas saat ngonten tegak empat botol alkohol demi bayar utang",
+  "category": "Kesehatan",
+  "sub category": "True Story",
+  "keyword": "Livestreamer Cina, tewas, ngonten, alkohol, bayar utang",
+  "related keyword": ["Livestreamer, Cina, utang, alkohol, kesehatan"],
+  "suggestion article": "Cara Mengatasi Utang dengan Sehat dan Aman"
+}
+ 
+------------------
+Prompt:
+        Identify the following items from the url,Format your response as a JSON object with         key value pair: 
+        - subject: Who is the subject present in the article, if more than one subject apply in list separated by comma
+        - summary: What is the article pointing out
+        - category: What is the general category of this article
+        - sub category: What is the subcategory of this article
+        - keyword: What is the most used keyword in this article, if multiple result apply in list of string separated by comma
+        - related keyword: suggest related keyword for this article, that can be used to optimise SEO for competing article, if multiple result apply in list of string separated by comma
+        - suggestion article: suggest article title to compete with this article based on related keyword, applying long tail keyword
+        
+        The url is delimited with triple backticks.         
+        If the information isn't present, use "unknown"         as the value.
+        Make your response as short as possible in indonesian language.
+        
+        Review text: ```https://health.detik.com/true-story/d-6765893/livestreamer-cina-tewas-saat-ngonten-tegak-empat-botol-alkohol-demi-bayar-utang```
+        
+-- Temperature:0.0
+-- Result:
+{
+  "subject": "Livestreamer Cina",
+  "summary": "Seorang livestreamer Cina tewas saat ngonten tegak empat botol alkohol demi bayar utang.",
+  "category": "Kesehatan",
+  "sub category": "unknown",
+  "keyword": "livestreamer, Cina, tewas, ngonten, alkohol, bayar utang",
+  "related keyword": ["utang, livestreamer, Cina, kesehatan, alkohol"],
+  "suggestion article": "Cara Mengatasi Utang dengan Sehat dan Aman"
+}
+ 
+------------------
+Prompt:
+        Identify the following items from the url,Format your response as a JSON object with         key value pair: 
+        - subject: Who is the subject present in the article, if more than one subject apply in python list
+        - summary: What is the article pointing out
+        - category: What is the general category of this article
+        - sub category: What is the subcategory of this article
+        - keyword: What is the most used keyword in this article, if multiple result apply in python list
+        - related keyword: suggest related keyword for this article, that can be used to optimise SEO for competing article, if multiple result apply in python list
+        - suggestion article: suggest article title to compete with this article based on related keyword, applying long tail keyword
+        
+        The url is delimited with triple backticks.         
+        If the information isn't present, use "unknown"         as the value.
+        Make your response as short as possible in indonesian language.
+        
+        Review text: ```https://health.detik.com/true-story/d-6765893/livestreamer-cina-tewas-saat-ngonten-tegak-empat-botol-alkohol-demi-bayar-utang```
+        
+-- Temperature:0.0
+-- Result:
+{
+  "subject": ["Livestreamer Cina"],
+  "summary": "Seorang livestreamer Cina tewas saat sedang ngonten tegak empat botol alkohol demi membayar utang.",
+  "category": "Kesehatan",
+  "sub category": "unknown",
+  "keyword": ["livestreamer", "Cina", "alkohol", "utang"],
+  "related keyword": ["kesehatan", "bahaya alkohol", "kecanduan alkohol", "utang piutang"],
+  "suggestion article": "Bahaya Kecanduan Alkohol dan Cara Mengatasinya"
+}
+ 
+------------------
+Prompt:
+        Identify the following items from the url,Format your response as a JSON object with         key value pair: 
+        - subject: Who is the subject present in the article, if more than one subject apply in python list
+        - summary: What is the article pointing out
+        - category: What is the general category of this article
+        - sub category: What is the subcategory of this article
+        - keyword: What is the most used keyword in this article, if multiple result apply in python list
+        - related keyword: suggest related keyword for this article, that can be used to optimise SEO for competing article, if multiple result apply in python list
+        - suggestion article: suggest article title to compete with this article based on related keyword, applying long tail keyword
+        
+        The url is delimited with triple backticks.         
+        If the information isn't present, use "unknown"         as the value.
+        Make your response as short as possible in indonesian language.
+        
+        Review text: ```https://finance.detik.com/berita-ekonomi-bisnis/d-6765426/kemenkeu-hormati-permintaan-jusuf-hamka-tagih-utang-rp-800-m```
+        
+-- Temperature:0.0
+-- Result:
+{
+  "subject": ["Kementerian Keuangan", "Jusuf Hamka"],
+  "summary": "Kementerian Keuangan menghormati permintaan Jusuf Hamka untuk menagih utang senilai Rp 800 miliar.",
+  "category": "Ekonomi dan Bisnis",
+  "sub category": "Keuangan",
+  "keyword": ["Kementerian Keuangan", "Jusuf Hamka", "utang", "Rp 800 miliar"],
+  "related keyword": ["pembayaran utang", "manajemen keuangan", "pinjaman", "investasi"],
+  "suggestion article": "Strategi Manajemen Keuangan untuk Membayar Utang Rp 800 Miliar"
+}
+ 
+------------------
+Prompt:
+        Identify the following items from the url,Format your response as a JSON object with         key value pair: 
+        - subject: Who is the subject present in the article, if more than one subject apply in python list
+        - summary: What is the article pointing out
+        - category: What is the general category of this article
+        - sub category: What is the subcategory of this article
+        - keyword: What is the most used keyword in this article, if multiple result apply in python list
+        - related keyword: suggest related keyword for this article, that can be used to optimise SEO for competing article, if multiple result apply in python list
+        - suggestion article: suggest article title to compete with this article based on related keyword, applying long tail keyword
+        
+        The url is delimited with triple backticks.         
+        If the information isn't present, use "unknown"         as the value.
+        Make your response as short as possible in indonesian language.
+        
+        Review text: ```https://finance.detik.com/berita-ekonomi-bisnis/d-6765426/kemenkeu-hormati-permintaan-jusuf-hamka-tagih-utang-rp-800-m```
+        
+-- Temperature:1
+-- Result:
+{
+    "subject": ["Jusuf Hamka", "Kementerian Keuangan"],
+    "summary": "Kementerian Keuangan menghormati permintaan Jusuf Hamka terkait tagihan utang senilai Rp 800 miliar.",
+    "category": "Berita",
+    "sub category": "Ekonomi dan Bisnis",
+    "keyword": ["Kementerian Keuangan", "Jusuf Hamka", "Tagihan Utang", "Rp 800 Miliar"],
+    "related keyword": ["Perbankan", "Kreditur", "Pailit"],
+    "suggestion article": "Mencari Solusi atas Tagihan Utang Jusuf Hamka sebesar Rp 800 Miliar: Suatu Analisis Mengenai Kondisi Keuangan Indonesia"
+}
+ 
